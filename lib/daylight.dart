@@ -145,7 +145,7 @@ class DaylightCalculator {
         sunLocalHourAngle + sunRightAsc - (0.06571 * hour) - 6.622;
 
     final double utcMeanTime = _fixValue(localMeanTime, 0, 24) - baseLongHour;
-    final double localT = utcMeanTime + time.timeZoneOffset.inHours;
+    final double localT = utcMeanTime + (time.timeZoneOffset.inMinutes/60.0);
 
     //return in mils
     return localT * 3600 * 1000;
